@@ -7,12 +7,13 @@
 BASEDIR=$(dirname "$0")
 source ${BASEDIR}/settings.conf   #import settings
 
+in_serial="serial://$COM_PORT:$COM_PORT_SETTINGS#$RECV_FORMAT"
+#in_serial="serial://${com_port}:${com_port_settings}#${receiver_format}"
+in_tcp="tcpcli://$TCP_IP:$TCP_PORT#$RECV_FORMAT"
 
-in_serial="serial://${serial_input}"
-in_tcp="tcpcli://${tcp_ip}:${tcp_port}#${receiver_format}"
 
-out_caster="ntrips://:${svr_pwd}@${svr_addr}:${svr_port}/${mnt_name}#rtcm3 -msg ${rtcm_msg} -p ${position} -i ${receiver}"
-out_tcp="tcpsvr://:${tcp_port}"
+out_caster="ntrips://:$SVR_PWD@$SVR_ADDR:$SVR_PORT/$MNT_NAME#rtcm3 -msg $RTCM_MSG -p $POSITION -i $RECEVEIVER"
+out_tcp="tcpsvr://:$SVR_PORT"
 out_file="file://${datadir}/${file_name}::T::S=${file_rotate_time} -f ${file_overlap_time}"
 
 

@@ -1,0 +1,28 @@
+version: '3'
+services:
+  basertk:
+    restart: always
+    image: jancelin/rtkbase:rtkbase
+#    build:
+#      context: https://github.com/jancelin/rtkbase.git#master:/docker/amd86-64
+    ports:
+     - 2101:2101
+     - 2000:2000
+    volumes:
+     - logs:
+    environment:
+      - TCP_PORT=2000
+      - TCP_IP=192.168.43.93
+      - RECV_FORMAT='ubx'
+      - COM_PORT='ttyS1'
+      - COM_PORT_SETTINGS '115200:8:n:1'
+      - SVR_ADDR=caster.centipede.fr
+      - SVR_PORT=2101
+      - SVR_PWD=centipede
+      - MNT_NAME=TEST
+      - RECEVEIVER='Ublox_neo-m8t'
+      - RTCM_MSG='1002,1006,1010,1097,1107,1117,1127'
+      - ENV POSITION '46.16489 -0.94822 68.27'
+    restart: always
+volumes:
+  logs:
