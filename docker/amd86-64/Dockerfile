@@ -2,7 +2,7 @@
 #docker run -it  --rm --network host --entrypoint /bin/bash --device=/dev/ttyACM4:/dev/ttyACM4 --privileged jancelin/rtkbase:rtkbase
 #docker run  --rm --network -t rtk host jancelin/rtkbase:rtkbase
 #docker run  -d --rm -t rtk --network host jancelin/rtkbase:rtkbase
-#docker run  --rm --name rtk --network host  -e MNT_NAME=BASE -e SRV_ADDR=caster.centipede.fr -e SRV_PORT=2101 -e COM_PORT=ttyACM4  --device=/dev/ttyACM4:/dev/ttyACM4 --privileged jancelin/rtkbase:rtkbase
+#docker run  --rm --name rtk -p 2101:2101  -e MNT_NAME=BASE -e SRV_ADDR=caster.centipede.fr -e SRV_PORT=2101 -e COM_PORT=ttyACM0 -e POSITION='45.99211717163 -1.02813790378 58.954' -e RTCM_MSG='1006,1007,1008,1033,1077,1087,1097,1107,1117,1127,1019,1020,1042,1045,1046' --device=/dev/tty*:/dev/tty* --privileged jancelin/rtkbase:rtkbase
 
 
 FROM debian:10-slim
@@ -35,7 +35,7 @@ ENV TCP_PORT 2000
 ENV TCP_IP 172.24.1.133
 ENV RECV_FORMAT 'ubx'
 
-ENV COM_PORT 'ttyACM4'
+ENV COM_PORT ttyACM0
 ENV COM_PORT_SETTINGS '115200:8:n:1'
 
 ENV SVR_ADDR caster.centipede.fr
@@ -44,7 +44,7 @@ ENV SVR_PWD centipede
 ENV MNT_NAME BAS
 
 ENV RECEVEIVER 'Ublox_f9p'
-ENV RTCM_MSG '1002,1006,1010,1097,1107,1117,1127'
+ENV RTCM_MSG '1006,1007,1008,1033,1077,1087,1097,1107,1117,1127,1019,1020,1042,1045,1046'
 ENV POSITION '46.16489 -0.94822 68.27'
 
 
