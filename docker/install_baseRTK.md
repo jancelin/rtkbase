@@ -52,18 +52,8 @@ nano rtk.env
 
 - prod (deamon)
 
+```docker-compose up -d```
+
 ## ubx data
 
 ubx data are in ./rtkbase/docker/amd86-64/ubx
-
-```docker-compose up -d
-
-
-
-
-
-
-
-
-
-
