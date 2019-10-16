@@ -38,6 +38,17 @@ out_file="file://${datadir}/${file_name}::T::S=${file_rotate_time} -f ${file_ove
         ${cast} -in ${!1} -out ${out_file} &
       fi
       ;;
+
+    out_caster-file)
+      echo ${cast} -in ${!1} -out $out_caster
+      ${BASEDIR}/check_timesync.sh  #wait for a correct date/time before starting to write files
+      ret=$?
+      if [ ${ret} -eq 0 ]
+      then
+        ${cast} -in ${!1} -out ${out_file} &
+        ${cast} -in ${!1} -out ${out_caster} &
+      fi
+      ;;
       
     esac
 
