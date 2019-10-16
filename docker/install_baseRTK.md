@@ -42,7 +42,7 @@ nano rtk.env
 ```
 
 - Change base name: MNT_NAME=BASE > MNT_NAME=YOURBASE
-- Change USB mount (/dev/tty?): COM_PORT=ttyACM0 if necessary
+- Change USB mount (/dev/tty?)  if necessary: COM_PORT=ttyACM0
 
 ## run
 
