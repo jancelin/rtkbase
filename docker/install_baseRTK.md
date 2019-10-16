@@ -3,6 +3,7 @@
 
 - Connect your gnss receiver F9P to PC with usb.
 - Set your gnss receiver to output raw data with [U-center](https://www.u-blox.com/en/product/u-center)
+- crtl F9
 	- RATE: 200ms
 	- PRT: USB protocol out UBX
 	- MSG: RXM-RAWX > USB & RXM-SFRBX > USB & disable all NMEA
