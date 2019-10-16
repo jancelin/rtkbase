@@ -1,7 +1,7 @@
 
 ## Param GNSS receiver
 
-- Connect your gnss receiver F9P to raspberry pi3 with usb.
+- Connect your gnss receiver F9P to PC with usb.
 - Set your gnss receiver to output raw data with [U-center](https://www.u-blox.com/en/product/u-center)
 	- RATE: 200ms
 	- PRT: USB protocol out UBX
