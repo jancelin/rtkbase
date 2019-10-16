@@ -55,6 +55,10 @@ nano rtk.env
 
 ```docker-compose up -d```
 
+## connect to caster
+
+- connect another GNSS receiver to http://caster.centipede.fr:2101 YOURBASE RTCM3 
+
 ## ubx data
 
 ubx data are in ./rtkbase/docker/amd86-64/ubx
