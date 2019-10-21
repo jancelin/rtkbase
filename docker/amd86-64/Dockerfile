@@ -43,6 +43,6 @@ ENV LON -1.213787
 ENV ALT 50
 
 #run any other process in the foreground
-CMD /etc/init.d/ntp start & nohup /rtkbase/run_cast.sh in_serial out_caster-file & sleep infinity
+CMD /etc/init.d/ntp start & nohup /rtkbase/run_cast.sh in_serial $RUN & sleep infinity
 
 
