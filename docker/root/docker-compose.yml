@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: jancelin/rtkbase:cmd
+    image: jancelin/centipede:cmd
     ports:
       - 8000:8000
     volumes:
@@ -9,4 +9,5 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     env_file:
       - ./cmd.env
+    entrypoint: ["cloudcmd"]
 

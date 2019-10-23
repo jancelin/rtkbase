@@ -1,5 +1,3 @@
-#docker build -t jancelin/rtkbase:caster-file -f Dockerfile .
-
 FROM debian:10-slim
 MAINTAINER Julien Ancelin<julien.ancelin@inra.fr>
 
@@ -24,6 +22,7 @@ WORKDIR /rtkbase/
 COPY settings.conf settings.conf
 COPY run_cast.sh run_cast.sh 
 COPY check_timesync.sh check_timesync.sh
+COPY rtkrcv.conf rtkrcv.conf
 RUN chmod +x check_timesync.sh
 RUN chmod +x run_cast.sh
 

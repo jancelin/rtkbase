@@ -1,7 +1,25 @@
 'use strict';
 
 module.exports = {
-    'L - List services': async ({CloudCmd}) => {
+    '1 - Base rtkrcv Status': async ({CloudCmd}) => {
+        await CloudCmd.TerminalRun.show({
+            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml run rcv rtkrcv -s',
+            // close window when done
+            autoClose: false,
+        });
+
+        await CloudCmd.refresh();
+    },
+    '2 - Make RINEX files': async ({CloudCmd}) => {
+        await CloudCmd.TerminalRun.show({
+            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml up conv',
+            // close window when done
+            autoClose: false,
+        });
+
+        await CloudCmd.refresh();
+    },
+    '3 - List services': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml ps',
             // close window when done
@@ -10,25 +28,34 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    'A - Up Base & Log': async ({CloudCmd}) => {
+    '4 - Start RTCM3 & Logs': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml up base log',
+            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml up -d rtcm3 log',
             // close window when done
             autoClose: false,
         });
 
         await CloudCmd.refresh();
     },
-    'B - Up Base RTK': async ({CloudCmd}) => {
+    '5 - Start RTCM3': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml up base',
+            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml up rtcm3',
             // close window when done
             autoClose: true,
         });
 
         await CloudCmd.refresh();
     },
-    'L - Up Log': async ({CloudCmd}) => {
+    '6 - Stop  RTCM3': async ({CloudCmd}) => {
+        await CloudCmd.TerminalRun.show({
+            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml stop rtcm3',
+            // close window when done
+            autoClose: true,
+        });
+
+        await CloudCmd.refresh();
+    },
+    '6 - Start   Logs': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml up log',
             // close window when done
@@ -37,7 +64,16 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    'S - Stop log': async ({CloudCmd}) => {
+    '7 - Restart Logs': async ({CloudCmd}) => {
+        await CloudCmd.TerminalRun.show({
+            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml restart log',
+            // close window when done
+            autoClose: true,
+        });
+
+        await CloudCmd.refresh();
+    },
+    '8 - Stop    Logs': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml stop log',
             // close window when done
@@ -46,7 +82,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    'K - kill': async ({CloudCmd}) => {
+    '9 - kill ALL': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml kill',
             // close window when done
@@ -55,11 +91,20 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    'R - Remove': async ({CloudCmd}) => {
+    '10 - Remove ALL': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml rm',
             // close window when done
             autoClose: true,
+        });
+
+        await CloudCmd.refresh();
+    },
+    '11 - Update': async ({CloudCmd}) => {
+        await CloudCmd.TerminalRun.show({
+            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml pull',
+            // close window when done
+            closeMessage: 'Press any button to close Terminal & F2 & 4 - Start RTCM3 & Logs',
         });
 
         await CloudCmd.refresh();

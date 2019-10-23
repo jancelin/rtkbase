@@ -35,25 +35,25 @@ sudo apt-get install git
 git clone https://github.com/jancelin/rtkbase.git
 ```
 
-## modify param
-
-```
-cd ./rtkbase/docker/amd86-64
-nano rtk.env
-```
-
-- Change base name: MNT_NAME=BASE > MNT_NAME=YOURBASE
-- Change USB mount (/dev/tty?)  if necessary: COM_PORT=ttyACM0
-
 ## run
 
-- debug
+```
+cd ./rtkbase/docker/root/basertk
+docker-compose up
+```
+go to http://localhost:8000
 
-```docker-compose up```
+```
+F2
+4 - Start RTCM3 & Logs
+```
+## modify param
 
-- prod (deamon)
-
-```docker-compose up -d```
+- Right click on rtk.env
+- edit
+- Change base name: MNT_NAME=BASE > MNT_NAME=YOURBASE
+- Change USB mount (/dev/tty?)  if necessary: COM_PORT=ttyACM0
+- save
 
 ## connect to caster
 
@@ -61,4 +61,4 @@ nano rtk.env
 
 ## ubx data
 
-ubx data are in ./rtkbase/docker/amd86-64/ubx
+ubx data are in ./rtkbase/docker/root/basertk/ubx
