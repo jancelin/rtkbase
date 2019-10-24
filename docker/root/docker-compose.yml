@@ -3,7 +3,7 @@ services:
   web:
     image: jancelin/centipede:cmd
     ports:
-      - 8000:8000
+      - 80:8000
     volumes:
       - /:/root
       - ./:/mnt/fs
