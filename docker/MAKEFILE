@@ -7,7 +7,10 @@ docker buildx create --name my-new-builder --driver docker-container --us
 docker buildx inspect --bootstrap
 
 cd ./rtkbase/docker/cmd
-docker buildx build --platform=linux/amd64,linux/arm64 --push -t jancelin/centipede:cmd .
+docker buildx build --platform=linux/amd64,linux/arm64,linux/arm/v7 --push -t jancelin/centipede:cmd .
 
 cd ./rtkbase/docker/rtklib
-docker buildx build --platform=linux/amd64,linux/arm64 --push -t jancelin/centipede:rtklib .
+docker buildx build --platform=linux/amd64,linux/arm64,linux/arm/v7 --push -t jancelin/centipede:rtklib .
+
+cd ./rtkbase/docker/receiver
+docker buildx build --platform=linux/amd64,linux/arm64,linux/arm/v7 --push -t jancelin/centipede:receiver .

@@ -3,7 +3,7 @@
 module.exports = {
     '1 - Base rtkrcv Status': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml run rcv rtkrcv -s',
+            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml run --rm rcv rtkrcv -s',
             // close window when done
             autoClose: false,
         });
@@ -91,7 +91,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '10 - Remove ALL': async ({CloudCmd}) => {
+    'A - Remove ALL': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml rm',
             // close window when done
@@ -100,7 +100,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '11 - Update': async ({CloudCmd}) => {
+    'B - Update system': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml pull',
             // close window when done
@@ -109,7 +109,15 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
+    'C - Update reveiver': async ({CloudCmd}) => {
+        await CloudCmd.TerminalRun.show({
+            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml run --rm receiver',
+            // close window when done
+            autoClose: false,
+        });
 
+        await CloudCmd.refresh();
+    },
 };
 
 async function createDefaultMenu({path, data, DOM, CloudCmd}) {

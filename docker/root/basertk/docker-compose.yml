@@ -44,3 +44,13 @@ services:
     env_file:
       - ./rtk.env
     entrypoint: ""
+  receiver:
+    restart: "no"
+    image: jancelin/centipede:receiver
+    devices:
+      - "/dev/tty*:/dev/tty*"
+    privileged: true
+
+
+
+
