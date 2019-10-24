@@ -9,7 +9,7 @@ services:
      - "/dev/tty*:/dev/tty*"
     privileged: true
     volumes:
-     - /home/jancelin/rtkbase/docker/root/basertk/ubx:/rtkbase/data
+     - /rtkbase/docker/root/basertk/ubx:/rtkbase/data
     env_file:
       - ./rtk.env
     environment:
@@ -21,7 +21,7 @@ services:
       - "/dev/tty*:/dev/tty*"
     privileged: true
     volumes:
-      - /home/jancelin/rtkbase/docker/root/basertk/ubx:/rtkbase/data
+      - /rtkbase/docker/root/basertk/ubx:/rtkbase/data
     env_file:
       - ./rtk.env
     environment:
@@ -31,7 +31,7 @@ services:
     image: jancelin/centipede:rtklib
     privileged: true
     volumes:
-      - /home/jancelin/rtkbase/docker/root/basertk:/rtkbase
+      - /rtkbase/docker/root/basertk:/rtkbase
     env_file:
       - ./rtk.env
     entrypoint: "RINEX/convbin.sh"
@@ -40,7 +40,7 @@ services:
     image: jancelin/centipede:rtklib
     privileged: true
     volumes:
-      - /home/jancelin/rtkbase/docker/root/basertk:/rtkbase
+      - /rtkbase/docker/root/basertk:/rtkbase
     env_file:
       - ./rtk.env
     entrypoint: ""
