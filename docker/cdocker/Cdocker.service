@@ -1,0 +1,13 @@
+[Unit]
+Description=Cdocker        
+After=tlp-init.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/rtkbase/docker/cdocker/check_docker.sh
+
+[Install]
+WantedBy=multi-user.target
+
+
