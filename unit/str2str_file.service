@@ -1,13 +1,11 @@
 [Unit]
-Description=RTKBase File
-#After=network-online.target
-#Wants=network-online.target
-Requires=str2str_tcp.service ntp.service
+Description=RTKBase File - Log data
+Requires=str2str_tcp.service systemd-timesyncd.service
 
 [Service]
 Type=forking
-#User=basegnss
-ExecStart={user_home}/rtkbase/run_cast.sh in_tcp out_file
+User={user}
+ExecStart={script_path}/run_cast.sh in_tcp out_file
 
 [Install]
 WantedBy=multi-user.target
