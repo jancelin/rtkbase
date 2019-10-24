@@ -5,7 +5,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ~:/root
+      - /:/root
       - ./:/mnt/fs
       - /var/run/docker.sock:/var/run/docker.sock
     env_file:
