@@ -8,7 +8,7 @@ RUN echo "deb    http://http.debian.net/debian sid main " >> /etc/apt/sources.li
 
 #install 
 RUN apt-get update \
-  && apt-get install -t sid -y gcc git build-essential automake checkinstall ntp ntpstat \
+  && apt-get install -t sid -y gcc git build-essential automake checkinstall ntp ntpstat zip unzip \
   && git clone -b rtklib_2.4.3 https://github.com/tomojitakasu/RTKLIB.git \
   && cd /RTKLIB/app \
   && make all \

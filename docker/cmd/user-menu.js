@@ -28,15 +28,6 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '4 - Start RTCM3 & Logs': async ({CloudCmd}) => {
-        await CloudCmd.TerminalRun.show({
-            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml up -d rtcm3 log',
-            // close window when done
-            autoClose: false,
-        });
-
-        await CloudCmd.refresh();
-    },
     '5 - Start RTCM3': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml up rtcm3',

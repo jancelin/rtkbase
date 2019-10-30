@@ -34,7 +34,7 @@ services:
       - /rtkbase/docker/root/basertk:/rtkbase
     env_file:
       - ./rtk.env
-    entrypoint: "RINEX/convbin.sh"
+    entrypoint: "ubx/RINEX/convbin.sh"
   rcv:
     restart: "no"
     image: jancelin/centipede:rtklib
