@@ -33,7 +33,7 @@ do
     docker-compose -f /rtkbase/docker/root/docker-compose.yml down --remove-orphans &&
     docker-compose -f /rtkbase/docker/root/basertk/docker-compose.yml down --remove-orphans &&
     docker-compose -f /rtkbase/docker/root/docker-compose.yml up -d &&
-    docker-compose -f /rtkbase/docker/root/basertk/docker-compose.yml up rtcm3 log -d
+    docker-compose -f /rtkbase/docker/root/basertk/docker-compose.yml up -d rtcm3
     exit
   fi
 
