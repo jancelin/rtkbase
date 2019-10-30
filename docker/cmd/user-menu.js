@@ -28,7 +28,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '5 - Start RTCM3': async ({CloudCmd}) => {
+    '4 - Start RTCM3': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml up rtcm3',
             // close window when done
@@ -37,7 +37,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '6 - Stop  RTCM3': async ({CloudCmd}) => {
+    '5 - Stop  RTCM3': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml stop rtcm3',
             // close window when done
@@ -55,16 +55,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '7 - Restart Logs': async ({CloudCmd}) => {
-        await CloudCmd.TerminalRun.show({
-            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml restart log',
-            // close window when done
-            autoClose: true,
-        });
-
-        await CloudCmd.refresh();
-    },
-    '8 - Stop    Logs': async ({CloudCmd}) => {
+    '7 - Stop    Logs': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml stop log',
             // close window when done
@@ -73,7 +64,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '9 - kill ALL': async ({CloudCmd}) => {
+    '8 - kill ALL': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml kill',
             // close window when done
@@ -82,7 +73,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    'A - Remove ALL': async ({CloudCmd}) => {
+    '9 - Remove ALL': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml rm',
             // close window when done
@@ -91,7 +82,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    'B - Update system': async ({CloudCmd}) => {
+    'A - Update system': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml pull',
             // close window when done
@@ -100,7 +91,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    'C - Update reveiver': async ({CloudCmd}) => {
+    'B - Update reveiver': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml run --rm receiver',
             // close window when done
