@@ -4,7 +4,7 @@ for file in ./*.ubx
 do
   mkdir ./RINEX/${file} &&
   convbin ${file} -v 2.11 -r ubx -od -os -oi -ot -d ./RINEX/${file}/
-  cp ${file} ./RINEX/${file}/${file}
+  mv ${file} ./RINEX/${file}/${file}
   cd ./RINEX/${file}
     for f in *.obs
         do cp -- "$f" "${f%.obs}.19o"

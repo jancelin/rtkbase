@@ -8,6 +8,7 @@ services:
       - /:/root
       - ./:/mnt/fs
       - /var/run/docker.sock:/var/run/docker.sock
+      - /rtkbase/docker/cmd/user-menu.js:/usr/local/lib/node_modules/cloudcmd/static/user-menu.js
     env_file:
       - ./cmd.env
     entrypoint: ["cloudcmd"]

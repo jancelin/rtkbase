@@ -12,7 +12,7 @@ module.exports = {
     },
     '2 - Make RINEX files': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml up conv',
+            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml run --rm conv',
             // close window when done
             autoClose: false,
         });
@@ -37,16 +37,16 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '5 - Stop  RTCM3': async ({CloudCmd}) => {
+    '5 - Stop RTCM3': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml stop rtcm3',
+            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml kill rtcm3',
             // close window when done
             autoClose: true,
         });
 
         await CloudCmd.refresh();
     },
-    '6 - Start   Logs': async ({CloudCmd}) => {
+    '6 - Start Log': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml up log',
             // close window when done
@@ -55,9 +55,9 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '7 - Stop    Logs': async ({CloudCmd}) => {
+    '7 - Stop Log': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml stop log',
+            command: ' docker-compose -f /mnt/fs/basertk/docker-compose.yml kill log',
             // close window when done
             autoClose: true,
         });
