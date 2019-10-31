@@ -20,8 +20,8 @@
 ### Activer le service au démarrage du raspberry: sudo systemctl enable Cdocker.service
 ### Et si besoin il est possible de le lancer à la main pour vérifier son fonctonnement (attention il y a un sleep de 40 secondes): sudo systemctl start Cdocker.service
 
-#set -x
-sleep 60
+set -x
+sleep 3
 LIST=$(docker ps -aq)
 for CONTAINER in $LIST
 do
@@ -30,10 +30,12 @@ do
 
   if [ "$RUNNING" = "false" ]; then
     echo "CRITICAL - $CONTAINER is not running."
-    docker-compose -f /rtkbase/docker/root/docker-compose.yml down --remove-orphans &&
-    docker-compose -f /rtkbase/docker/root/basertk/docker-compose.yml down --remove-orphans &&
-    docker-compose -f /rtkbase/docker/root/docker-compose.yml up -d &&
-    docker-compose -f /rtkbase/docker/root/basertk/docker-compose.yml up -d rtcm3
+    cd /rtkbase/docker/root &&
+    docker-compose  down --remove-orphans &&
+    docker-compose  up -d &&
+    cd /rtkbase/docker/root/basertk &&
+    docker-compose down --remove-orphans &&
+    docker-compose up -d rtcm3
     exit
   fi
 
@@ -47,6 +49,10 @@ do
   STARTED=$(docker inspect --format="{{.State.StartedAt}}" $CONTAINER)
   NETWORK=$(docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" $CONTAINER)
 
+  cd /rtkbase/docker/root &&
+  docker-compose  up -d &&
+  cd /rtkbase/docker/root/basertk &&
+  docker-compose up -d rtcm3
   echo "OK - $CONTAINER is running. IP: $NETWORK, StartedAt: $STARTED"
   
 done

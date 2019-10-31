@@ -12,6 +12,8 @@ services:
      - /rtkbase/docker/root/basertk/ubx:/rtkbase/data
     env_file:
       - ./rtk.env
+    networks:
+      - rtk
     environment:
       - RUN=out_caster
   log:
@@ -24,6 +26,8 @@ services:
       - /rtkbase/docker/root/basertk/ubx:/rtkbase/data
     env_file:
       - ./rtk.env
+    networks:
+      - rtk
     environment:
       - RUN=out_file
   conv:
@@ -34,6 +38,8 @@ services:
       - /rtkbase/docker/root/basertk:/rtkbase
     env_file:
       - ./rtk.env
+    networks:
+      - rtk
     entrypoint: "ubx/RINEX/convbin.sh"
   rcv:
     restart: "no"
@@ -43,6 +49,8 @@ services:
       - /rtkbase/docker/root/basertk:/rtkbase
     env_file:
       - ./rtk.env
+    networks:
+      - rtk
     entrypoint: ""
   receiver:
     restart: "no"
@@ -50,6 +58,11 @@ services:
     devices:
       - "/dev/tty*:/dev/tty*"
     privileged: true
+    networks:
+      - rtk
+
+networks:
+  rtk:
 
 
 
