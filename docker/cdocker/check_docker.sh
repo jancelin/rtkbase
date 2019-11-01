@@ -53,7 +53,6 @@ do
   docker-compose  up -d &&
   cd /rtkbase/docker/root/basertk &&
   docker-compose kill log &&
-  docker-compose rm log &&
   docker-compose up -d rtcm3
   echo "OK - $CONTAINER is running. IP: $NETWORK, StartedAt: $STARTED"
   
