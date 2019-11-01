@@ -12,7 +12,7 @@ module.exports = {
     },
     '2 - Make RINEX files': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' ./rtkbase/convbin.sh',
+            command: ' ./rtkbase/install/convbin.sh',
             // close window when done
             autoClose: false,
         });

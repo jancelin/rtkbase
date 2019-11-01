@@ -1,13 +1,13 @@
 #!/bin/bash
 #set -xv
-cd ./ubx/ &&
+cd ./data/ &&
 for file in ./*.ubx
 do
-  mkdir ./RINEX/${file} &&
-  convbin ${file} -v 2.11 -r ubx -od -os -oi -ot -d ./RINEX/${file}/
-  mv ${file} ./RINEX/${file}/${file}
-  mv ${file}.tag ./RINEX/${file}/${file}.tag
-  cd ./RINEX/${file}
+  mkdir ./${file} &&
+  convbin ${file} -v 2.11 -r ubx -od -os -oi -ot -d ./${file}/
+  mv ${file} ./${file}/${file}
+  mv ${file}.tag ./${file}/${file}.tag
+  cd ./${file}
     for f in *.obs
         do cp -- "$f" "${f%.obs}.19o"
     done 

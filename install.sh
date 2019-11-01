@@ -14,7 +14,7 @@ apt-get update
  apt-get autoremove -y gcc build-essential automake checkinstall
 
 cd 
-git clone https://github.com/Stefal/rtkbase.git
+git clone https://github.com/jancelin/rtkbase.git
 
 cd ./rtkbase/
 chmod +x check_timesync.sh
@@ -41,8 +41,9 @@ npm install --production
 npm install gritty -g --unsafe-perm
 npm i cloudcmd -g
 
-wget --no-check-certificate -P /usr/local/lib/node_modules/cloudcmd/static/ https://raw.githubusercontent.com/jancelin/rtkbase/master/docker/cmd/user-menu.js
-
+cp ./rtkbase/install/user-menu.js /usr/local/lib/node_modules/cloudcmd/static/
+cp ./rtkbase/install/cmd.service /etc/systemd/system/
+systemctl enable cmd.service
 
 
 
