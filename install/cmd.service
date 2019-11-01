@@ -1,0 +1,13 @@
+
+[Unit]
+Description=cmd        
+After=tlp-init.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=cloudcmd --terminal --terminal-path gritty -u admin -p centipede --port 8000 --name centipede --no-console
+
+[Install]
+WantedBy=multi-user.target
+

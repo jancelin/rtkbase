@@ -1,0 +1,61 @@
+#!/bin/bash
+set -ex
+
+#install rtklib
+apt-get update 
+ apt-get install -y gcc git build-essential automake checkinstall ntp ntpstat zip unzip 
+
+ git clone -b rtklib_2.4.3 https://github.com/tomojitakasu/RTKLIB.git 
+ cd /RTKLIB/app 
+ make all 
+ make install 
+ cp /RTKLIB/app/str2str/gcc/str2str /bin 
+ make clean 
+ apt-get autoremove -y gcc build-essential automake checkinstall
+
+cd 
+git clone https://github.com/Stefal/rtkbase.git
+
+cd ./rtkbase/
+chmod +x check_timesync.sh
+chmod +x run_cast.sh
+chmod +x copy_unit.sh
+chmod +x network_check.sh
+chmod +x ubxconfig.sh
+
+./copy_unit.sh
+systemctl enable str2str_tcp.service 
+systemctl enable str2str_file.service 
+systemctl enable str2str_ntrip.service 
+
+#echo "0 4 * * * /rtkbase/archive_and_clean.sh" >> /var/spool/cron/root
+
+systemctl start str2str_ntrip.service
+systemctl start str2str_file.service
+
+cd
+apt-get install -y nodejs npm
+wget --no-check-certificate -P ./ https://raw.githubusercontent.com/coderaiser/cloudcmd/master/package.json
+
+npm install --production
+npm install gritty -g --unsafe-perm
+npm i cloudcmd -g
+
+wget --no-check-certificate -P /usr/local/lib/node_modules/cloudcmd/static/ https://raw.githubusercontent.com/jancelin/rtkbase/master/docker/cmd/user-menu.js
+
+
+
+
+[Unit]
+Description=cmd        
+After=tlp-init.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=cloudcmd --terminal --terminal-path gritty -u admin -p centipede --port 8000 --name centipede --no-console
+
+[Install]
+WantedBy=multi-user.target
+
+

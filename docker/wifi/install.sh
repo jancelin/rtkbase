@@ -68,13 +68,14 @@ sudo nano /etc/dnsmasq.conf
 interface=wlan0      # Use the require wireless interface - usually wlan0
 dhcp-range=192.168.4.2,192.168.4.20,255.255.255.0,24h
 
+sudo systemctl start dnsmasq
 sudo systemctl reload dnsmasq
 
 sudo nano /etc/hostapd/hostapd.conf
 
 interface=wlan0
 bridge=br0
-#driver=nl80211
+driver=nl80211
 ssid=Centipede
 hw_mode=g
 channel=7
