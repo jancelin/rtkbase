@@ -12,7 +12,7 @@ module.exports = {
     },
     '2 - Make RINEX files': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' ./rtkbase/install/convbin.sh',
+            command: ' /rtkbase/install/convbin.sh',
             // close window when done
             autoClose: false,
         });
@@ -75,7 +75,7 @@ module.exports = {
     },
     'B - Update reveiver': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' ./rtkbase/receiver_cfg/ubxconfig.sh /dev/ttyACM0 U-Blox_ZED-F9P_rtkbase.txt --force',
+            command: ' /rtkbase/receiver_cfg/ubxconfig.sh /dev/ttyACM0 U-Blox_ZED-F9P_rtkbase.txt --force',
             // close window when done
             autoClose: false,
         });

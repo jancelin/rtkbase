@@ -30,9 +30,6 @@ systemctl enable str2str_ntrip.service
 
 #echo "0 4 * * * /rtkbase/archive_and_clean.sh" >> /var/spool/cron/root
 
-systemctl start str2str_ntrip.service
-systemctl start str2str_file.service
-
 cd
 apt-get install -y nodejs npm
 wget --no-check-certificate -P ./ https://raw.githubusercontent.com/coderaiser/cloudcmd/master/package.json
@@ -44,19 +41,4 @@ npm i cloudcmd -g
 cp ./rtkbase/install/user-menu.js /usr/local/lib/node_modules/cloudcmd/static/
 cp ./rtkbase/install/cmd.service /etc/systemd/system/
 systemctl enable cmd.service
-
-
-
-[Unit]
-Description=cmd        
-After=tlp-init.service
-
-[Service]
-Type=oneshot
-RemainAfterExit=no
-ExecStart=cloudcmd --terminal --terminal-path gritty -u admin -p centipede --port 8000 --name centipede --no-console
-
-[Install]
-WantedBy=multi-user.target
-
 
