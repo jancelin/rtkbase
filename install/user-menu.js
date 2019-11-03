@@ -12,7 +12,7 @@ module.exports = {
     },
     '2 - Make RINEX files': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' /rtkbase/install/convbin.sh',
+            command: ' ./convbin.sh',
             // close window when done
             autoClose: false,
         });
@@ -21,7 +21,7 @@ module.exports = {
     },
     '3 - List services': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' systemctl status str2str_ntrip.service',
+            command: 'sudo systemctl status str2str_ntrip.service',
             // close window when done
             autoClose: false,
         });
@@ -30,7 +30,7 @@ module.exports = {
     },
     '4 - Start RTCM3': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: 'systemctl start str2str_ntrip.service',
+            command: 'sudo systemctl start str2str_ntrip.service',
             // close window when done
             autoClose: true,
         });
@@ -39,7 +39,7 @@ module.exports = {
     },
     '5 - Stop RTCM3': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' systemctl stop str2str_ntrip.service',
+            command: 'sudo systemctl stop str2str_ntrip.service',
             // close window when done
             autoClose: true,
         });
@@ -48,7 +48,7 @@ module.exports = {
     },
     '6 - Start Log': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' systemctl start str2str_file.service',
+            command: 'sudo systemctl start str2str_file.service',
             // close window when done
             autoClose: true,
         });
@@ -57,7 +57,7 @@ module.exports = {
     },
     '7 - Stop Log': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' systemctl stop str2str_file.service',
+            command: 'sudo systemctl stop str2str_file.service',
             // close window when done
             autoClose: true,
         });
@@ -75,7 +75,7 @@ module.exports = {
     },
     'B - Update reveiver': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' /rtkbase/receiver_cfg/ubxconfig.sh /dev/ttyACM0 U-Blox_ZED-F9P_rtkbase.txt --force',
+            command: 'sudo ./ubxconfig.sh /dev/ttyACM0 U-Blox_ZED-F9P_rtkbase.txt --force',
             // close window when done
             autoClose: false,
         });
