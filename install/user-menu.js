@@ -3,7 +3,7 @@
 module.exports = {
     '1 - Base rtkrcv Status': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' rtkrcv -s',
+            command: 'sudo rtkrcv -s',
             // close window when done
             autoClose: false,
         });
@@ -12,7 +12,7 @@ module.exports = {
     },
     '2 - Make RINEX files': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' ./convbin.sh',
+            command: ' sudo ./convbin.sh',
             // close window when done
             autoClose: false,
         });
@@ -21,7 +21,7 @@ module.exports = {
     },
     '3 - List services': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: 'sudo systemctl status str2str_ntrip.service',
+            command: 'sudo ./status.sh',
             // close window when done
             autoClose: false,
         });
@@ -66,7 +66,7 @@ module.exports = {
     },
     'A - Update system': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' git pull',
+            command: 'sudo git pull',
             // close window when done
             closeMessage: 'Press any button to close Terminal',
         });
