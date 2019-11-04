@@ -1,0 +1,13 @@
+[Unit]
+Description=RTKBase File - Log data
+Requires=str2str_tcp.service systemd-timesyncd.service
+
+[Service]
+Type=forking
+User=root
+ExecStart=/rtkbase/run_cast.sh in_tcp out_file
+
+[Install]
+WantedBy=multi-user.target
+
+
