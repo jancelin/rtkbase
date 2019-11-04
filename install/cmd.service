@@ -6,7 +6,7 @@ After=tlp-init.service
 [Service]
 Type=oneshot
 RemainAfterExit=no
-ExecStart=cloudcmd --terminal --terminal-path gritty -u admin -p centipede --port 8000 --name centipede --no-console
+ExecStart=cloudcmd --terminal --terminal-path gritty -u "admin" -p "centipede" --port 8000 --name centipede --no-console --one-file-panel
 
 [Install]
 WantedBy=multi-user.target
