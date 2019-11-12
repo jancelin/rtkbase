@@ -17,4 +17,5 @@ do
         do zip -r  "${z}.zip" ${z} &&
         rm ${z}
     done
- done
+  cd ..
+done
