@@ -20,7 +20,7 @@ do
   mv  ${fname}.obs ${fname}.19o &&
   zip -m ${fname}.19o.zip ${fname}.19o &&
   #zip RINEX directory
-  zip -m ${fname}_5s_rinex2_11 ${fname}.* &&
+  zip -m ${fname}_5s_rinex2_11 ${fname}.*
 done
 
 #delete gnss data older than x days.
