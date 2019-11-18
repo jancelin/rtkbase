@@ -15,12 +15,12 @@ do
   #get file name
   fname="${file%.*}"
   #conb ubx > RINEX
-  convbin ${file} -v 2.11 -r ubx -od -os -oi -ot -ti 5
+  convbin ${file} -v 2.11 -r ubx -od -os -oi -ot -ti 5 &&
   #change extension & zip obs
-  mv  ${fname}.obs ${fname}.19o
-  zip -m ${fname}.19o.zip ${fname}.19o
+  mv  ${fname}.obs ${fname}.19o &&
+  zip -m ${fname}.19o.zip ${fname}.19o &&
   #zip RINEX directory
-  zip -m ${fname}_5s_rinex2_11 ${fname}.*
+  zip -m ${fname}_5s_rinex2_11 ${fname}.* &&
 done
 
 #delete gnss data older than x days.
