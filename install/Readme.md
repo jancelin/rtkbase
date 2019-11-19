@@ -33,14 +33,14 @@
     - A - update system: checkin and update file system (git pull)
     - B - update receveir: go to /receiver_cfg before. Updating GNSS antenna [F9P](https://github.com/jancelin/rtkbase/blob/master/receiver_cfg/U-Blox_ZED-F9P_config_info.txt) parameters to get a RTK base station 
 
-# AFTER...
+# THEN...
 
 * 1. do to /receiver_cfg directory and click on F2 > "update receiver"
 
 * 2. right click on ```settings.conf``` file > Edit > 
-        - change ```position='45.999381 -1.213787 50'``` by an approximate position of the antenna ('lat long height'), the precise calculation of the position will be done later
-	- change ```"mnt_name"``` ex: mnt_name=FOO
-        -  > ctrl s (save)
+        - change ```position='45.999381 -1.213787 50'``` by an approximate position of the antenna ('lat long height'), the precise calculation of the position will be done later.
+	- change ```mnt_name``` ex: ```mnt_name=FOO```
+        - ctrl s (save)
 * 3. click on F2 > Stop RTCM3 & Stop Log
 
 * 4. click on F2 > Start RTCM3 & Start Log
@@ -82,7 +82,7 @@
 	- mount Point Name
 	- material
 
-# Inside baseRTK-rpi-V0.2.5
+# Inside baseRTK-rpi-V0.3.0
 
 * Debian 10 Buster 
 
