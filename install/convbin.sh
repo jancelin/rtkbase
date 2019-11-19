@@ -1,7 +1,7 @@
 #!/bin/bash
 #set -xv
 #This script should be run from a crontab
-#(crontab -l | grep . ; echo -e "0 4 * * * /rtkbase/convbin.sh\n") | crontab -
+#echo -e "0 4 * * * root /rtkbase/convbin.sh" >> /etc/crontab
 #You can customize archive_name, rinex, observ_data, and archive_rotate in settings.conf
 
 BASEDIR=$(dirname "$0")
