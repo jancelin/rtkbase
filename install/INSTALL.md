@@ -1,5 +1,9 @@
 ## Experimental
 
+> From https://github.com/Stefal/rtkbase
+
+> Build with https://github.com/jancelin/image-builder-rpi/tree/BaseRTK_v0.3.1
+
 # Material
 
 * Raspberry Pi 3 or 4
@@ -96,19 +100,31 @@
 	- mount Point Name
 	- material
 
+# SSH
+
+ssh centipede@centipede.local
+
+password: centipede
+
+```
+sudo -s 
+cd /rtkbase
+```
+
 # Inside baseRTK-rpi-V0.3.0
 
 * Debian 10 Buster 
+
+* [RTKbase](https://github.com/Stefal/rtkbase.git)
 
 * [RTKLIB 2.4.3](https://github.com/tomojitakasu/RTKLIB.git)
 
 * [Cloud CMD](https://github.com/coderaiser/cloudcmd)
 
-* [RTKbase](https://github.com/Stefal/rtkbase.git)
 
 # Image
 
-* [Image builder](https://github.com/jancelin/image-builder-rpi/blob/baseRTK-rpi-V0.2.5)
+* [Image builder](https://github.com/jancelin/image-builder-rpi/blob/baseRTK-rpi-V0.3.1)
 
 
 
