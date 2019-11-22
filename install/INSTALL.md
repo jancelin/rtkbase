@@ -1,6 +1,20 @@
 ## Experimental
 
+# Material
+
+* Raspberry Pi 3 or 4
+
+* Micro SD 16Go
+
+* [F9P](https://store.drotek.com/rtk-zed-f9p-gnss)
+
+* [D910](https://store.drotek.com/da-910-multiband-gnss-antenna)
+
 # Installation and use
+
+* [Install U-center](https://www.u-blox.com/en/product/u-center)
+
+* [Update F9P firmware](https://drotek.gitbook.io/rtk-f9p-positioning-solutions/tutorials/updating-zed-f9p-firmware)
 
 * Download [baseRTK-rpi-V0.3.0.img.zip](https://github.com/jancelin/rtkbase/releases/download/baseRTK-rpi-V0.3.0/baseRTK-rpi-V0.3.0.img.zip)
 
