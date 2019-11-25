@@ -82,6 +82,15 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
+    'C - Reboot': async ({CloudCmd}) => {
+        await CloudCmd.TerminalRun.show({
+            command: 'sudo reboot',
+            // close window when done
+            autoClose: false,
+        });
+
+        await CloudCmd.refresh();
+    },
 };
 
 async function createDefaultMenu({path, data, DOM, CloudCmd}) {

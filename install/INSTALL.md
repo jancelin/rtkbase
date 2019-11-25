@@ -20,7 +20,7 @@
 
 * [Update F9P firmware](https://drotek.gitbook.io/rtk-f9p-positioning-solutions/tutorials/updating-zed-f9p-firmware)
 
-* Download [baseRTK-rpi-V0.3.0.img.zip](https://github.com/jancelin/rtkbase/releases/download/baseRTK-rpi-V0.3.0/baseRTK-rpi-V0.3.0.img.zip)
+* Download [baseRTK-rpi-V0.3.1.img.zip](https://github.com/jancelin/rtkbase/releases/download/baseRTK-rpi-V0.3.1/baseRTK-rpi-V0.3.1.img.zip)
 
 * flash this image with [etcher](https://www.google.com/search?client=firefox-b-1-d&q=etcher)  (windows,mac, linux) on a micro sd card 16 Go mini
 
@@ -111,7 +111,7 @@ sudo -s
 cd /rtkbase
 ```
 
-# Inside baseRTK-rpi-V0.3.0
+# Inside baseRTK-rpi-V0.3.1
 
 * Debian 10 Buster 
 
