@@ -2,9 +2,7 @@
 
 Some bash scripts for a simple gnss base station
 
-## WIKI
-
-https://github.com/jancelin/rtkbase/wiki
+## [WIKI](https://github.com/jancelin/rtkbase/wiki)
 
 ## Installation: 
 
