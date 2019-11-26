@@ -23,22 +23,19 @@ git clone -b 0.3.1 https://github.com/jancelin/rtkbase.git
 cd /rtkbase
 ./copy_unit.sh
 ##modify file.service because user is false
-mv /etc/systemd/system/str2str_file.service /etc/systemd/system/str2str_file.service.bak
-cp ./install/str2str_file.service /etc/systemd/system/str2str_file.service
 systemctl enable str2str_tcp.service 
 systemctl enable str2str_file.service 
 systemctl enable str2str_ntrip.service 
 ##adapt cmd menu & enable service
 mv /usr/lib/node_modules/cloudcmd/static/user-menu.js /usr/lib/node_modules/cloudcmd/static/user-menu.js.bak
 cp ./install/user-menu.js /usr/lib/node_modules/cloudcmd/static/
-cp ./install/cmd.service /etc/systemd/system/cmd.service
 systemctl enable cmd.service 
-##add tools
-chmod +x ./convbin.sh
-chmod +x ./status.sh
+##exec *.sh
+find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 #crontab convbin
 echo -e "0 4 * * * root /rtkbase/convbin.sh" >> /etc/crontab
 cat /etc/crontab
 #remove some tools
 systemctl disable ntp
 apt-get autoremove -y gcc build-essential automake checkinstall ntp
+
