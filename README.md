@@ -2,6 +2,8 @@
 
 Some bash scripts for a simple gnss base station
 
+## [WIKI](https://github.com/jancelin/rtkbase/wiki)
+
 ## Installation: 
 
 + Connect your gnss receiver to raspberry pi/orange pi/.... with usb or uart, and check which com port it uses (ttyS1, ttyAMA0, something else...)

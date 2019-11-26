@@ -4,8 +4,9 @@ Requires=str2str_tcp.service systemd-timesyncd.service
 
 [Service]
 Type=forking
-User={user}
-ExecStart={script_path}/run_cast.sh in_tcp out_file
+User=root
+ExecStart=/rtkbase/run_cast.sh in_tcp out_file
 
 [Install]
 WantedBy=multi-user.target
+

@@ -1,5 +1,4 @@
-#!/bin/bash
-set -ex
+#RTKbase----------------------------------------------------
 #install dep
 apt-get update 
 apt-get install -y gcc git build-essential automake checkinstall zip unzip dos2unix bc xxd
@@ -18,33 +17,25 @@ wget --no-check-certificate -P ./ https://raw.githubusercontent.com/coderaiser/c
 npm install --production
 npm install gritty -g --unsafe-perm
 npm install cloudcmd -g --unsafe-perm
-#clone rtkbase
+##clone rtkbase
 cd /
-git clone https://github.com/Stefal/rtkbase.git
+git clone -b 0.3.1 https://github.com/jancelin/rtkbase.git 
 cd /rtkbase
-mv ./settings.conf ./settings.conf.bak
-wget --no-check-certificate -P ./ https://raw.githubusercontent.com/jancelin/rtkbase/master/install/settings.conf
 ./copy_unit.sh
-#modify file.service because user is false
-mv /etc/systemd/system/str2str_file.service /etc/systemd/system/str2str_file.service.bak
-wget --no-check-certificate -P /etc/systemd/system/ https://raw.githubusercontent.com/jancelin/rtkbase/master/install/str2str_file.service
+##modify file.service because user is false
 systemctl enable str2str_tcp.service 
 systemctl enable str2str_file.service 
 systemctl enable str2str_ntrip.service 
-#adapt cmd menu & enable service
+##adapt cmd menu & enable service
 mv /usr/lib/node_modules/cloudcmd/static/user-menu.js /usr/lib/node_modules/cloudcmd/static/user-menu.js.bak
-wget --no-check-certificate -P /usr/lib/node_modules/cloudcmd/static/ https://raw.githubusercontent.com/jancelin/rtkbase/master/install/user-menu.js
-wget --no-check-certificate -P /etc/systemd/system/ https://raw.githubusercontent.com/jancelin/rtkbase/master/install/cmd.service
-systemctl enable cmd.service
-#add tools
-wget --no-check-certificate -P ./ https://raw.githubusercontent.com/jancelin/rtkbase/master/install/convbin.sh
-wget --no-check-certificate -P ./ https://raw.githubusercontent.com/jancelin/rtkbase/master/install/status.sh
-wget --no-check-certificate -P ./ https://raw.githubusercontent.com/jancelin/rtkbase/master/install/rtkrcv.conf
-chmod +x ./convbin.sh
-chmod +x ./status.sh
+cp ./install/user-menu.js /usr/lib/node_modules/cloudcmd/static/
+systemctl enable cmd.service 
+##exec *.sh
+find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 #crontab convbin
 echo -e "0 4 * * * root /rtkbase/convbin.sh" >> /etc/crontab
 cat /etc/crontab
 #remove some tools
 systemctl disable ntp
 apt-get autoremove -y gcc build-essential automake checkinstall ntp
+
