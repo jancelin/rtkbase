@@ -1,9 +1,15 @@
 # https://egjerde.com/blog/?p=66
 
-bluetoothctl
+
+#!/bin/bash
+set -ex
+bluetoothctl  << EOF
 power on
 discoverable on
 quit
+EOF
+
+
 
 sudo nano /etc/systemd/system/dbus-org.bluez.service
                                                                                                           

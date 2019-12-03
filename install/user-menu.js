@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-    '1 - Base rtkrcv Status': async ({CloudCmd}) => {
+    '1 - RTKRCV Status': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: 'sudo rtkrcv -s',
+            command: 'sudo rtkrcv -s -o rtkrcv.conf status',
             // close window when done
             autoClose: false,
         });
@@ -64,9 +64,27 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
+    '8 - Start Rover': async ({CloudCmd}) => {
+        await CloudCmd.TerminalRun.show({
+            command: 'sudo ./BT/BT_ON.sh',
+            // close window when done
+            autoClose: false,
+        });
+
+        await CloudCmd.refresh();
+    },
+    '9 - Stop Rover': async ({CloudCmd}) => {
+        await CloudCmd.TerminalRun.show({
+            command: 'sudo ./BT/BT_OFF.sh',
+            // close window when done
+            autoClose: true,
+        });
+
+        await CloudCmd.refresh();
+    },
     'A - Update system': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: 'sudo git pull',
+            command: 'sudo ./upd/upd.sh',
             // close window when done
             closeMessage: 'Press any button to close Terminal',
         });
