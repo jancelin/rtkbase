@@ -1,3 +1,4 @@
+ GNU nano 3.2                                                                                                                    /rtkbase/BT/BT_ON.sh                                                                                                                               
 #!/bin/bash
 set -ex
 
