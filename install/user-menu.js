@@ -12,7 +12,7 @@ module.exports = {
     },
     '2 - Make RINEX files': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: ' sudo ./convbin.sh',
+            command: ' sudo /rtkbase/convbin.sh',
             // close window when done
             autoClose: false,
         });
@@ -21,7 +21,7 @@ module.exports = {
     },
     '3 - List services': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: 'sudo ./status.sh',
+            command: 'sudo /rtkbase/status.sh',
             // close window when done
             autoClose: false,
         });
@@ -66,7 +66,7 @@ module.exports = {
     },
     '8 - Start BT': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: 'sudo ./BT/BT_ON.sh',
+            command: 'sudo /rtkbase/BT/BT_ON.sh',
             // close window when done
             autoClose: false,
         });
@@ -75,7 +75,7 @@ module.exports = {
     },
     '9 - Stop BT': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: 'sudo ./BT/BT_OFF.sh',
+            command: 'sudo /rtkbase/BT/BT_OFF.sh',
             // close window when done
             autoClose: true,
         });
@@ -84,7 +84,7 @@ module.exports = {
     },
     'A - Update system': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: 'sudo ./upd/upd.sh',
+            command: 'sudo /rtkbase/upd/upd.sh',
             // close window when done
             closeMessage: 'Press any button to close Terminal',
         });
@@ -93,7 +93,7 @@ module.exports = {
     },
     'B - Update reveiver': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
-            command: 'sudo ./ubxconfig.sh /dev/ttyACM0 U-Blox_ZED-F9P_rtkbase.txt --force',
+            command: 'sudo /rtkbase/ubxconfig.sh /dev/ttyACM0 /rtkbase/receiver_cfg/U-Blox_ZED-F9P_rtkbase.txt --force',
             // close window when done
             autoClose: false,
         });
