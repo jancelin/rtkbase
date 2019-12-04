@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    '1 - RTK Receiver': async ({CloudCmd}) => {
+    '1 - RTK Receiver ON': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: 'sudo rtkrcv -s -o rtkrcv.conf',
             // close window when done
@@ -10,7 +10,16 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '2 - Make RINEX files': async ({CloudCmd}) => {
+    '2 - RTK Receiver OFF': async ({CloudCmd}) => {
+        await CloudCmd.TerminalRun.show({
+            command: 'sudo killall rtkrcv',
+            // close window when done
+            autoClose: true,
+        });
+
+        await CloudCmd.refresh();
+    },
+    '3 - Make RINEX files': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: ' sudo /rtkbase/convbin.sh',
             // close window when done
@@ -19,7 +28,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '3 - List services': async ({CloudCmd}) => {
+    '4 - List services': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: 'sudo /rtkbase/status.sh',
             // close window when done
@@ -28,7 +37,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '4 - Start RTCM3': async ({CloudCmd}) => {
+    '5 - Start RTCM3': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: 'sudo systemctl start str2str_ntrip.service',
             // close window when done
@@ -37,7 +46,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '5 - Stop RTCM3': async ({CloudCmd}) => {
+    '6 - Stop RTCM3': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: 'sudo systemctl stop str2str_ntrip.service',
             // close window when done
@@ -46,7 +55,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '6 - Start Log': async ({CloudCmd}) => {
+    '7 - Start Log': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: 'sudo systemctl start str2str_file.service',
             // close window when done
@@ -55,7 +64,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '7 - Stop Log': async ({CloudCmd}) => {
+    '8 - Stop Log': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: 'sudo systemctl stop str2str_file.service',
             // close window when done
@@ -64,16 +73,16 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    '8 - Start BT': async ({CloudCmd}) => {
+    'A - Start BT': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: 'sudo /rtkbase/BT/BT_ON.sh',
             // close window when done
-            autoClose: false,
+            autoClose: true,
         });
 
         await CloudCmd.refresh();
     },
-    '9 - Stop BT': async ({CloudCmd}) => {
+    'B - Stop BT': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: 'sudo /rtkbase/BT/BT_OFF.sh',
             // close window when done
@@ -82,7 +91,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    'A - Update system': async ({CloudCmd}) => {
+    'C - Update system': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: 'sudo /rtkbase/upd/upd.sh',
             // close window when done
@@ -91,7 +100,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    'B - Update reveiver': async ({CloudCmd}) => {
+    'D - Update reveiver': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: 'sudo /rtkbase/ubxconfig.sh /dev/ttyACM0 /rtkbase/receiver_cfg/U-Blox_ZED-F9P_rtkbase.txt --force',
             // close window when done
@@ -100,7 +109,7 @@ module.exports = {
 
         await CloudCmd.refresh();
     },
-    'C - Reboot': async ({CloudCmd}) => {
+    'E - Reboot': async ({CloudCmd}) => {
         await CloudCmd.TerminalRun.show({
             command: 'sudo reboot',
             // close window when done
