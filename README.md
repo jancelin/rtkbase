@@ -1,8 +1,8 @@
 # rtkbase
 
-Some bash scripts for a simple gnss base station
+# [Documentation](http://docs.centipede.fr)
 
-## [WIKI](https://github.com/jancelin/rtkbase/wiki)
+Some bash scripts for a simple gnss base station
 
 ## Installation: 
 
