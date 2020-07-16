@@ -1,6 +1,6 @@
 # RTKBase
 
-### An easy to use and easy to install web frontend with some bash scripts and services for a simple headless gnss base station.
+### An easy to use and easy to install web frontend with bash scripts and services for a simple headless gnss base station.
 
 ## FrontEnd:
 |<img src="./images/web_status.png" alt="status" width="250"/>|<img src="./images/web_settings.png" alt="settings" width="250"/>|<img src="./images/web_logs.png" alt="logs" width="250"/>|
@@ -35,7 +35,7 @@ If you use a Raspberry Pi, thanks to [jancelin](https://github.com/jancelin), yo
 
    ```bash
    $ cd ~
-   $ wget https://raw.githubusercontent.com/stefal/rtkbase/master/tools/install.sh
+   $ wget wget https://github.com/stefal/rtkbase/releases/latest/download/install.sh -O install.sh
    $ chmod +x install.sh
    $ sudo ./install.sh --all
    ```
@@ -116,7 +116,7 @@ So, if you really want it, let's go for a manual installation with some explanat
 
       ```bash
       $ cd ~
-      $ git clone -b rtklib_2.4.3 https://github.com/tomojitakasu/RTKLIB/rtklib_2.4.3
+      $ git clone -b rtklib_2.4.3 --single-branch https://github.com/tomojitakasu/RTKLIB
       ```
 
    + compile and install str2str:
@@ -238,6 +238,11 @@ RTKBase use several RTKLIB `str2str` instances started with `run_cast.sh` as sys
 <img src="./images/internal.png" alt="internal"/>
 
 The web gui is available when the `rtkbase_web` service is running.
+
+## Advanced:
++ Aerial images:
+The default map background is OpenStreetMap, but you can switch to an aerial layer if you have a Maptiler key. To enable this layer, create a free account on [Maptiler](https://www.maptiler.com/), create a key and add it to `settings.conf` inside the `[general]` section:
+`maptiler_key=your_key`
 
 ## Other usages:
 A gnss receiver with a timepulse output is a very accurate [stratum 0](https://en.wikipedia.org/wiki/Network_Time_Protocol#Clock_strata) clock thus, your gnss base station could act as a stratum 1 ntp peer for your local network and/or the [ntp pool](https://en.wikipedia.org/wiki/NTP_pool). There are a few steps to do this:
