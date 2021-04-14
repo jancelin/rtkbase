@@ -134,6 +134,8 @@ install_rtklib() {
       then 
         #Get Rtklib 2.4.3 b34 release
         sudo -u $(logname) wget -qO - https://github.com/tomojitakasu/RTKLIB/archive/v2.4.3-b34.tar.gz | tar -xvz
+        #Add patch ntripclient: https://github.com/oobayly/RTKLIB/commit/e811effb18ce44597c3809f3a29548786b4a3b1f
+        wget https://raw.githubusercontent.com/oobayly/RTKLIB/bugfix/569/app/consapp/rtkrcv/rtkrcv.c -O RTKLIB-2.4.3-b34/app/consapp/rtkrcv/rtkrcv.c
         #Install Rtklib app
         #TODO add correct CTARGET in makefile?
         make --directory=RTKLIB-2.4.3-b34/app/consapp/str2str/gcc
