@@ -125,3 +125,12 @@ Options:
                          Start services (rtkbase_web, str2str_tcp, gpsd, chrony)
 basegnss@basegnss:~ $ sudo ./install.sh --dependencies --rtklib --rtkbase-repo --unit-files --gpsd-chrony --detect-usb-gnss --configure-gnss --start-services
 
+## pour juste un update suite à une maj:
+
+basegnss@basegnss:~ $ sudo ./install.sh --rtkbase-repo --start-services
+
+
+
+
+
+
