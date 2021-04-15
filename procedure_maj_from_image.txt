@@ -132,7 +132,7 @@ basegnss@basegnss:~ $ sudo rm -r rtkbase/data/
 #lancer les logs dans l'interface settings.
 #puis
 
-basegnss@basegnss:~ $ sudo service rtkbase restart
+basegnss@basegnss:~ $ sudo service rtkbase_web restart
 
 # puis aller voir le status dans l'interface.
 
@@ -142,6 +142,8 @@ basegnss@basegnss:~ $ sudo service rtkbase restart
 ## pour juste un update suite à une maj:
 
 basegnss@basegnss:~ $ sudo ./install.sh --rtkbase-repo --start-services
+basegnss@basegnss:~ $ sudo service rtkbase_web restart
+
 
 
 
