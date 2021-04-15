@@ -1,0 +1,127 @@
+basegnss@basegnss:~ $ sudo rm -r *
+basegnss@basegnss:~ $ ls
+basegnss@basegnss:~ $ wget https://raw.githubusercontent.com/jancelin/rtkbase/dev_rtkrover/tools/install.sh
+--2021-04-15 15:14:18--  https://raw.githubusercontent.com/jancelin/rtkbase/dev_rtkrover/tools/install.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.110.133, 185.199.108.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 17730 (17K) [text/plain]
+Saving to: ‘install.sh’
+
+install.sh                                  100%[===========================================================================================>]  17.31K  --.-KB/s    in 0.07s   
+
+2021-04-15 15:14:19 (244 KB/s) - ‘install.sh’ saved [17730/17730]
+
+basegnss@basegnss:~ $ ls
+install.sh
+basegnss@basegnss:~ $ chmod +x install.sh
+basegnss@basegnss:~ $ 
+basegnss@basegnss:~ $ 
+basegnss@basegnss:~ $ 
+basegnss@basegnss:~ $ sudo ./install.sh --help
+Installation options:  --help
+################################
+RTKBASE INSTALLATION HELP
+################################
+Bash scripts to install a simple gnss base station with a web frontend.
+
+
+
+* Before install, connect your gnss receiver to raspberry pi/orange pi/.... with usb or uart.
+* Running install script with sudo
+
+        sudo ./install.sh
+
+Options:
+        --all
+                         Install all dependencies, Rtklib, last release of Rtkbase, services,
+                         crontab jobs, detect your GNSS receiver and configure it.
+
+        --dependencies
+                         Install all dependencies like git build-essential python3-pip ...
+
+        --rtklib
+                         Get RTKlib 2.4.3 from github and compile it.
+                         https://github.com/tomojitakasu/RTKLIB/tree/rtklib_2.4.3
+
+        --rtkbase-release
+                         Get last release of RTKBASE:
+                         https://github.com/Stefal/rtkbase/releases
+
+        --rtkbase-repo
+                         Clone RTKBASE from github:
+                         https://github.com/Stefal/rtkbase/tree/web_gui
+
+        --unit-files
+                         Deploy services.
+
+        --gpsd-chrony
+                         Install gpsd and chrony to set date and time
+                         from the gnss receiver.
+
+        --detect-usb-gnss
+                         Detect your GNSS receiver.
+
+        --configure-gnss
+                         Configure your GNSS receiver.
+
+        --start-services
+                         Start services (rtkbase_web, str2str_tcp, gpsd, chrony)
+basegnss@basegnss:~ $ ls /usr/local/bin/
+convbin  flask  pip  pip3  pip3.7  pyserial-miniterm  pyserial-ports  rtkrcv  rtkrcv.nav  str2str  wheel
+basegnss@basegnss:~ $ sudo rm /usr/local/bin/convbin 
+basegnss@basegnss:~ $ sudo rm /usr/local/bin/rtkrcv
+basegnss@basegnss:~ $ sudo rm /usr/local/bin/str2str 
+basegnss@basegnss:~ $ 
+basegnss@basegnss:~ $ 
+basegnss@basegnss:~ $ sudo ./install.sh --help
+Installation options:  --help
+################################
+RTKBASE INSTALLATION HELP
+################################
+Bash scripts to install a simple gnss base station with a web frontend.
+
+
+
+* Before install, connect your gnss receiver to raspberry pi/orange pi/.... with usb or uart.
+* Running install script with sudo
+
+        sudo ./install.sh
+
+Options:
+        --all
+                         Install all dependencies, Rtklib, last release of Rtkbase, services,
+                         crontab jobs, detect your GNSS receiver and configure it.
+
+        --dependencies
+                         Install all dependencies like git build-essential python3-pip ...
+
+        --rtklib
+                         Get RTKlib 2.4.3 from github and compile it.
+                         https://github.com/tomojitakasu/RTKLIB/tree/rtklib_2.4.3
+
+        --rtkbase-release
+                         Get last release of RTKBASE:
+                         https://github.com/Stefal/rtkbase/releases
+
+        --rtkbase-repo
+                         Clone RTKBASE from github:
+                         https://github.com/Stefal/rtkbase/tree/web_gui
+
+        --unit-files
+                         Deploy services.
+
+        --gpsd-chrony
+                         Install gpsd and chrony to set date and time
+                         from the gnss receiver.
+
+        --detect-usb-gnss
+                         Detect your GNSS receiver.
+
+        --configure-gnss
+                         Configure your GNSS receiver.
+
+        --start-services
+                         Start services (rtkbase_web, str2str_tcp, gpsd, chrony)
+basegnss@basegnss:~ $ sudo ./install.sh --dependencies --rtklib --rtkbase-repo --unit-files --gpsd-chrony --detect-usb-gnss --configure-gnss --start-services
+
