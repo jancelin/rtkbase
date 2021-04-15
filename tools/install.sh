@@ -153,7 +153,7 @@ install_rtklib() {
 
 rtkbase_repo(){
     #Get rtkbase repository
-    sudo -u $(logname) git clone https://github.com/stefal/rtkbase.git
+    sudo -u $(logname) git clone https://github.com/jancelin/rtkbase.git
     sudo -u $(logname) touch rtkbase/settings.conf
     add_rtkbase_path_to_environment
 
