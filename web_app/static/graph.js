@@ -376,6 +376,8 @@ function updateCoordinateGrid(msg) {
         //Sat
 	$("#sat_rover").html("<span>" + msg['# of satellites rover'] + "</span>");
 	$("#sat_valid_rover").html("<span>" + msg['# of valid satellites'] + "</span>");
+        $("#age_rover").html("<span>" + msg['age of differential (s)'] + "</span>");
+        $("#ratio_rover").html("<span>" + msg['ratio for ar validation'] + "</span>");
         // coordinates
         var coordinates = (typeof(msg['pos llh single (deg,m) rover']) == 'undefined') ? '000' : msg['pos llh single (deg,m) rover'].split(',');
 
