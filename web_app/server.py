@@ -95,7 +95,7 @@ services_list = [{"service_unit" : "str2str_tcp.service", "name" : "main"},
 
 
 #Delay before rtkrcv will stop if no user is on status.html page
-rtkcv_standby_delay = 600
+#rtkcv_standby_delay = 600
 
 #Get settings from settings.conf.default and settings.conf
 rtkbaseconfig = RTKBaseConfigManager(os.path.join(os.path.dirname(__file__), "../settings.conf.default"), os.path.join(os.path.dirname(__file__), "../settings.conf"))
