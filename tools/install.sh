@@ -133,19 +133,30 @@ install_rtklib() {
       if [ ! -f /usr/local/bin/str2str ]
       then 
         #Get Rtklib 2.4.3 b34 release
-        sudo -u $(logname) wget -qO - https://github.com/tomojitakasu/RTKLIB/archive/v2.4.3-b34.tar.gz | tar -xvz
+#        sudo -u $(logname) wget -qO - https://github.com/tomojitakasu/RTKLIB/archive/v2.4.3-b34.tar.gz | tar -xvz
         #Add patch ntripclient: https://github.com/oobayly/RTKLIB/commit/e811effb18ce44597c3809f3a29548786b4a3b1f
-        wget https://raw.githubusercontent.com/oobayly/RTKLIB/bugfix/569/app/consapp/rtkrcv/rtkrcv.c -O RTKLIB-2.4.3-b34/app/consapp/rtkrcv/rtkrcv.c
+#        wget https://raw.githubusercontent.com/oobayly/RTKLIB/bugfix/569/app/consapp/rtkrcv/rtkrcv.c -O RTKLIB-2.4.3-b34/app/consapp/rtkrcv/rtkrcv.c
         #Install Rtklib app
         #TODO add correct CTARGET in makefile?
-        make --directory=RTKLIB-2.4.3-b34/app/consapp/str2str/gcc
-        make --directory=RTKLIB-2.4.3-b34/app/consapp/str2str/gcc install
-        make --directory=RTKLIB-2.4.3-b34/app/consapp/rtkrcv/gcc
-        make --directory=RTKLIB-2.4.3-b34/app/consapp/rtkrcv/gcc install
-        make --directory=RTKLIB-2.4.3-b34/app/consapp/convbin/gcc
-        make --directory=RTKLIB-2.4.3-b34/app/consapp/convbin/gcc install
+#        make --directory=RTKLIB-2.4.3-b34/app/consapp/str2str/gcc
+#        make --directory=RTKLIB-2.4.3-b34/app/consapp/str2str/gcc install
+#        make --directory=RTKLIB-2.4.3-b34/app/consapp/rtkrcv/gcc
+#        make --directory=RTKLIB-2.4.3-b34/app/consapp/rtkrcv/gcc install
+#        make --directory=RTKLIB-2.4.3-b34/app/consapp/convbin/gcc
+#        make --directory=RTKLIB-2.4.3-b34/app/consapp/convbin/gcc install
         #deleting RTKLIB
-        rm -rf RTKLIB-2.4.3-b34/
+#        rm -rf RTKLIB-2.4.3-b34/
+
+#Get Rtklib 2.4.3 b34 version rtklibexplorer
+        
+        sudo -u $(logname) git clone https://github.com/rtklibexplorer/RTKLIB.git
+        make --directory=RTKLIB/app/consapp/str2str/gcc
+        make --directory=RTKLIB/app/consapp/str2str/gcc install
+        make --directory=RTKLIB/app/consapp/rtkrcv/gcc
+        make --directory=RTKLIB/app/consapp/rtkrcv/gcc install
+        make --directory=RTKLIB/app/consapp/convbin/gcc
+        make --directory=RTKLIB/app/consapp/convbin/gcc install
+
       else
         echo 'str2str already exist'
       fi
