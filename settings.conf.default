@@ -23,9 +23,9 @@ maptiler_key=
 
 [main]
 #base coordinates: lat long height
-position='47.0983869 -1.2655108 36.4'
+position='46.142657314 -1.157516753 66.969'
 #gnss receiver com port
-com_port='ttyS1'
+com_port='ttyACM0'
 #gnss receiver com port settings
 com_port_settings='115200:8:n:1'
 #receiver model
@@ -33,7 +33,7 @@ receiver='Ublox_ZED-F9P'
 #gnss receiver format
 receiver_format='ubx'
 #Antenna info, id, serial number. Without space inside the strings
-antenna_info='NULLANTENNA'
+antenna_info='DA910'
 #tcp port for RAW stream. If you change this value, edit gpsd conf file to reflect the port in DEVICES.
 tcp_port='5015'
 #ext_tcp_source is mainly for dev purpose to receive a raw stream from another base
@@ -46,13 +46,13 @@ ext_tcp_source=''
 #gnss data storage directory
 datadir=$BASEDIR/data
 #gnss data filename	    
-file_name='%Y-%m-%d_%h-%M-%S_GNSS-1'
+file_name='%Y-%m-%d_%h-%M-%S_ROVER_logs-UBX'
 #file rotate time in hour
 file_rotate_time='24'
 #file overlap time in seconds
 file_overlap_time='30'
 #name for the compressed archive
-archive_name=$(date -d "-1 days" +"%Y-%m-%d_%S").zip
+archive_name=$(date -d "-1 days" +"%Y-%m-%d_%S_ROVER_logs").zip
 #archives older than this value (in days) will be deleted by archive_and_clean.sh
 archive_rotate='60'
 #minum free space on device (in MB) before oldest archives are deleted
