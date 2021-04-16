@@ -18,7 +18,7 @@ convert_to_rinex() {
   echo "- CREATING RINEX	"${RINEX}
     /usr/local/bin/convbin "${raw_file}" -v 2.11 -r ${RAW_TYPE} -hm ${MOUNT_NAME}    \
         -f 2 -y R -y E -y J -y S -y C -y I        \
-        -od -os -oi -ot -ti 30 -tt 0 -ro -TADJ=1  \
+        -od -os -oi -ot -ti 1 -tt 0 -ro -TADJ=1  \
         -o ${filedate}-${MOUNT_NAME}.${year2}o
     return $?
   }
