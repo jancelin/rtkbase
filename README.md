@@ -47,7 +47,7 @@ If you use a Raspberry Pi, thanks to [jancelin](https://github.com/jancelin), yo
 
    ```bash
    $ cd ~
-   $ wget wget https://raw.githubusercontent.com/jancelin/rtkbase/dev_rtkrover/tools/install.sh -O install.sh
+   $ wget https://raw.githubusercontent.com/jancelin/rtkbase/dev_rtkrover/tools/install.sh -O install.sh
    $ chmod +x install.sh
    $ sudo ./install.sh --dependencies --rtklib --rtkbase-repo --unit-files --gpsd-chrony --detect-usb-gnss --configure-gnss --start-services
    ```
