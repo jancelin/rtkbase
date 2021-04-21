@@ -39,6 +39,19 @@ If you use a Raspberry Pi, thanks to [jancelin](https://github.com/jancelin), yo
    $ sudo ./install.sh --all
    ```
 
+## Easy installation from repo:
+
++ Connect your gnss receiver to your raspberry pi/orange pi/....
+
++ Open a terminal and:
+
+   ```bash
+   $ cd ~
+   $ wget wget https://raw.githubusercontent.com/jancelin/rtkbase/dev_rtkrover/tools/install.sh -O install.sh
+   $ chmod +x install.sh
+   $ sudo ./install.sh --dependencies --rtklib --rtkbase-repo --unit-files --gpsd-chrony --detect-usb-gnss --configure-gnss --start-services
+   ```
+
 + Go grab a coffee, it's gonna take a while. The script will install the needed softwares, and if you use a Usb-connected U-Blox ZED-F9P receiver, it'll be detected and set to work as a base station. If you don't use a F9P, you will have to configure your receiver manually (see step 7 in manual installation), and choose the correct port from the settings page.
 
 + Open a web browser to `http://ip_of_your_sbc` (the script will try to show you this ip address). Default password is `admin`. The settings page allow you to enter your own settings for the base coordinates, ntrip credentials and so on...
