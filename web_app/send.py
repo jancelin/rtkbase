@@ -21,18 +21,18 @@ while True:
     if(not connected):
         try:
             connectRtk()
-            connectCentral()
             connected = True
             while 1:
                 d = conRtk.recv(2048).decode()
                 if d:
                     data = d.split()
                     data.append(buoy)
-                    print(data)
+                    #print(data)
+                    connectCentral()
                     s = " "
                     data = s.join(data)
                     conCentral.sendall(data.encode('utf-8'))
-                    print('data send')
+                    #print('data send')
                 if d == '':
                     connected = False
                     break
