@@ -12,7 +12,7 @@ BASEDIR=$(dirname "$0")
 #path to the caster application
 cast=/usr/local/bin/str2str
 #set true if you want to enter a password to open the web gui.
-web_authentification=true
+web_authentification=false
 #enter here your new password for web gui 
 #(it will be erased during the next web server start)
 new_web_password=
@@ -25,7 +25,7 @@ maptiler_key=
 #base coordinates: lat long height
 position='46.142657314 -1.157516753 66.969'
 #gnss receiver com port
-com_port='ttyACM0'
+com_port='ttyAMA0'
 #gnss receiver com port settings
 com_port_settings='115200:8:n:1'
 #receiver model
@@ -69,7 +69,7 @@ svr_port='2101'
 #ntrip caster password
 svr_pwd=''
 #Mount name
-mnt_name='Your_mount_name'
+mnt_name='BOUY'
 rtcm_msg='1004,1005(10),1006,1008(10),1012,1019,1020,1033(10),1042,1045,1046,1077,1087,1097,1107,1127,1230'
 #Receiver dependent options
 ntrip_receiver_options=''
