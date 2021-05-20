@@ -1,17 +1,13 @@
 [Unit]
-Description=Send data to Central
+Description=send data to central
 #After=network-online.target
 #Wants=network-online.target
 
 [Service]
-Type=forking
-User={user}
+User=root
 ExecStart={python_path} {script_path}/web_app/send.py
 Restart=on-failure
 RestartSec=30
-#Limiting log to 1 msg per minute
-LogRateLimitIntervalSec=1 minute
-LogRateLimitBurst=1
 
 [Install]
 WantedBy=multi-user.target
