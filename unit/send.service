@@ -1,0 +1,13 @@
+[Unit]
+Description=RTKBase Web Server
+#After=network-online.target
+#Wants=network-online.target
+
+[Service]
+User=root
+ExecStart={python_path} {script_path}/web_app/send.py
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
