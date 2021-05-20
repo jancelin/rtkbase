@@ -1,13 +1,17 @@
 [Unit]
-Description=RTKBase Web Server
+Description=Send data to Central
 #After=network-online.target
 #Wants=network-online.target
 
 [Service]
-User=root
+Type=forking
+User={user}
 ExecStart={python_path} {script_path}/web_app/send.py
 Restart=on-failure
 RestartSec=30
+#Limiting log to 1 msg per minute
+LogRateLimitIntervalSec=1 minute
+LogRateLimitBurst=1
 
 [Install]
 WantedBy=multi-user.target
