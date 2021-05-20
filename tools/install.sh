@@ -267,6 +267,7 @@ install_unit_files() {
         #Install unit files
         ${rtkbase_path}/copy_unit.sh
         systemctl enable rtkbase_web.service
+	systemctl enable send.service
         systemctl enable rtkbase_archive.timer
         systemctl daemon-reload
         #Add dialout group to user
