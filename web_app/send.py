@@ -3,6 +3,7 @@ import socket
 
 buoy = 'buoy_test'
 connected = False
+connectedC = False
 
 def connectCentral():
     global conCentral
@@ -21,7 +22,7 @@ while True:
     if(not connected):
         try:
             connectRtk()
-            print('connected to Rtkrcv')
+            #print('connected to Rtkrcv')
             connected = True
             while 1:
                 d = conRtk.recv(2048).decode()
@@ -29,18 +30,23 @@ while True:
                     data = d.split()
                     data.append(buoy)
                     #print(data)
-                    connectCentral()
-                    s = " "
-                    data = s.join(data)
-                    conCentral.sendall(data.encode('utf-8'))
-                    #print('data send')
-                    connected = False
-                    conCentral.close()
-                    break
+                    if(not connectedC):
+                        try:
+                            connectCentral()
+                            connectedC = True
+                            s = " "
+                            data = s.join(data)
+                            connectedC = False
+                            conCentral.sendall(data.encode('utf-8'))
+                            #print('data send')
+                            connected = False
+                            conCentral.close()
+                            break
+                        except:
+                            pass
                 if d == '':
                     connected = False
                     break
         except:
             pass
-
 
