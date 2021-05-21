@@ -86,6 +86,42 @@
           </div>
       </form>
 
+<!-- ######## Send Service ########-->
+  <div id="send_space" class="form-group row">
+    <div class="col">
+    <label for="send-switch" class="col-4 col-form-label col-form-label-lg">Send service</label>
+    <input id="send-switch" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="outline-secondary">
+    <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#{{ send_settings[0].source_section }}" aria-expanded="false" aria-controls="send_service_options">Options</button>
+    </div>
+  </div>
+    <form id="{{ send_settings.pop(0).source_section }}" class="collapse was-validated">
+      <div class="form-group row">
+        <label for="send_id" class="col-sm-3 col-form-label">Base Id: </label>
+        <div class="col-sm-9">
+            <input id="send_id" type="text" name="send_id" class="form-control" value="{{ send_settings[0].send_id }}" title="Base Id" pattern="\w+[^|><\s]*" required>
+            <div class="invalid-feedback">Base unique Id</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="send_ip" class="col-sm-3 col-form-label">Central ip: </label>
+        <div class="col-sm-9">
+            <input id="send_ip" type="text" name="send_ip" class="form-control" value="{{ send_settings[1].send_ip }}" title="Central IP" pattern="\w+[^|><\s]*" required>
+            <div class="invalid-feedback">Base Id</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="send_port" class="col-sm-3 col-form-label">Central port: </label>
+        <div class="col-sm-9">
+            <input id="send_port" type="text" name="send_port" class="form-control" value="{{ send_settings[2].send_port }}" title="Central port" pattern="[0-9]{4,5}" required>
+            <div class="invalid-feedback">Central port</div>
+        </div>
+      </div>
+
+        <div class="clearfix">
+          <button type="submit" class="btn btn-primary float-right" disabled>Save</button>
+        </div>
+    </form>
+
 <!-- ######## Ntrip Service ########-->
   <div id="ntrip_service_space" class="form-group row">
     <div class="col">

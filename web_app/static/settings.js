@@ -94,10 +94,32 @@ $(document).ready(function () {
             
         })
 
-        // ####################  NTRIP service Switch #########################
+        // ################  Send data service Switch #####################
 
         // set the switch to on/off depending of the service status
         if (servicesStatus[1].active === true) {
+            //document.querySelector("#main-switch").bootstrapToggle('on');
+            $('#send-switch').bootstrapToggle('on', true);
+        } else {
+            //document.querySelector("#main-switch").bootstrapToggle('off');
+            $('#send-switch').bootstrapToggle('off', true);
+        }
+
+        // event for switching on/off service on user mouse click
+        //TODO When the switch changes its position, this event seems attached before
+        //the switch finish its transition, then fire another event.
+        $( "#send-switch" ).one("change", function(e) {
+            var switchStatus = $(this).prop('checked');
+            //console.log(" e : " + e);
+            console.log("Send SwitchStatus : " + switchStatus);
+            socket.emit("services switch", {"name" : "send", "active" : switchStatus});
+
+        })
+
+        // ####################  NTRIP service Switch #########################
+
+        // set the switch to on/off depending of the service status
+        if (servicesStatus[2].active === true) {
             //document.querySelector("#main-switch").bootstrapToggle('on');
             $('#ntrip-switch').bootstrapToggle('on', true);
         } else {
@@ -116,10 +138,11 @@ $(document).ready(function () {
             
         })
 
+
         // ####################  RTCM server service Switch #########################
 
         // set the switch to on/off depending of the service status
-        if (servicesStatus[2].active === true) {
+        if (servicesStatus[3].active === true) {
             //document.querySelector("#main-switch").bootstrapToggle('on');
             $('#rtcm_svr-switch').bootstrapToggle('on', true);
         } else {
@@ -138,10 +161,11 @@ $(document).ready(function () {
             
         })
 
+
         // ####################  Serial RTCM service Switch #########################
 
         // set the switch to on/off depending of the service status
-        if (servicesStatus[3].active === true) {
+        if (servicesStatus[4].active === true) {
             //document.querySelector("#main-switch").bootstrapToggle('on');
             $('#rtcm_serial-switch').bootstrapToggle('on', true);
         } else {
@@ -163,7 +187,7 @@ $(document).ready(function () {
         // ####################  LOG service Switch #########################
 
         // set the switch to on/off depending of the service status
-        if (servicesStatus[4].active === true) {
+        if (servicesStatus[5].active === true) {
             //document.querySelector("#main-switch").bootstrapToggle('on');
             $('#file-switch').bootstrapToggle('on', true);
         } else {

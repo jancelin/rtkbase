@@ -120,6 +120,16 @@ class RTKBaseConfigManager:
             ordered_rtcm_serial.append({key : self.config.get('rtcm_serial', key).strip("'")})
         return ordered_rtcm_serial
 
+    def get_send_settings(self):
+        """
+            Get a subset of the settings from the file section in an ordered object
+            and remove the single quotes.       
+        """
+        ordered_send = [{"source_section" : "send"}]
+        for key in ("send_id", "send_ip", "send_port"):
+            ordered_send.append({key : self.config.get('send', key).strip("'")})
+        return ordered_send
+
     def get_ordered_settings(self):
         """
             Get a subset of the main, ntrip and file sections from the settings file
@@ -127,6 +137,7 @@ class RTKBaseConfigManager:
         """
         ordered_settings = {}
         ordered_settings['main'] = self.get_main_settings()
+        ordered_settings['send'] = self.get_send_settings()
         ordered_settings['ntrip'] = self.get_ntrip_settings()
         ordered_settings['file'] = self.get_file_settings()
         ordered_settings['rtcm_svr'] = self.get_rtcm_svr_settings()
