@@ -1,15 +1,20 @@
-
+from RTKBaseConfigManager import RTKBaseConfigManager
 import socket
+import os
 
-buoy = 'buoy_test'
+#Get settings from settings.conf.default and settings.conf
+rtkbaseconfig = RTKBaseConfigManager(os.path.join(os.path.dirname(__file__), "../settings.conf.default"), os.path.join(os.path.dirname(__file__), "../settings.conf"))
+
+buoy = rtkbaseconfig.get("send", "send_id").strip("'")
 connected = False
 connectedC = False
 
 def connectCentral():
     global conCentral
     conCentral = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    addrC = ('147.100.179.215', 8090)
-    #addrC = ('tracking.centipede.fr', 443)
+    ipC = rtkbaseconfig.get("send", "send_ip").strip("'")
+    portC = int(rtkbaseconfig.get("send", "send_port").strip("'"))
+    addrC = (ipC, portC)
     conCentral.connect(addrC)
 
 def connectRtk():
@@ -49,4 +54,5 @@ while True:
                     break
         except:
             pass
+
 
